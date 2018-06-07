@@ -3,7 +3,12 @@ public class Car extends Vehicle {
     float storageCapacity;
     int seatCount;
 
-    public Car(float storageCapacity, int seatCount) {
+    public Car(){
+        super();
+    }
+
+    public Car(String company, String plate, String colour, float storageCapacity, int seatCount) {
+        super(company, plate, colour);
         this.storageCapacity = storageCapacity;
         this.seatCount = seatCount;
     }

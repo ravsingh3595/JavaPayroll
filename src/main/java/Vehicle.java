@@ -5,6 +5,11 @@ public class Vehicle {
     private String plate;
     private String colour;
 
+    public Vehicle()
+    {
+
+    }
+
     public Vehicle(String company, String plate, String colour) {
         this.company = company;
         this.plate = plate;

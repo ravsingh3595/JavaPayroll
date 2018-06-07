@@ -3,7 +3,12 @@ public class Motorcycle extends Vehicle{
     float enginePower;
     float topSpeed;
 
-    public Motorcycle(float enginePower, float topSpeed) {
+    public Motorcycle(){
+        super();
+    }
+
+    public Motorcycle(String company, String plate, String colour, float enginePower, float topSpeed) {
+        super(company, plate, colour);
         this.enginePower = enginePower;
         this.topSpeed = topSpeed;
     }
