@@ -1,10 +1,12 @@
-public class Vehicle {
+abstract public class Vehicle {
 
     //private String type;
     private String company;
     private String plate;
     private String colour;
     private int year;       //this is the new addition, need to be added over other methods also.
+
+    abstract public void Vehicle();
 
     public Vehicle()
     {
