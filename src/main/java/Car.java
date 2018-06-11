@@ -1,14 +1,14 @@
 public class Car extends Vehicle {
 
-    float storageCapacity;
-    int seatCount;
+    private float storageCapacity;
+    private int seatCount;
 
     public Car(){
         super();
     }
 
-    public Car(String company, String plate, String colour, float storageCapacity, int seatCount) {
-        super(company, plate, colour);
+    public Car(String company, String plate, String colour, int year, float storageCapacity, int seatCount) {
+        super(company, plate, colour, year);
         this.storageCapacity = storageCapacity;
         this.seatCount = seatCount;
     }
@@ -29,5 +29,13 @@ public class Car extends Vehicle {
         this.seatCount = seatCount;
     }
 
-    public void Vehicle() {System.out.print("a");}
+    public void Vehicle()
+    {}
+
+    @Override
+    public void printMyData()
+    {
+        System.out.println("\tStore Space:    " + getStorageCapacity());
+        System.out.println("\tNumber of Seats:" + getSeatCount());
+    }
 }

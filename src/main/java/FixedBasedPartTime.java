@@ -20,7 +20,7 @@ public class FixedBasedPartTime extends PartTime{
         this.fixedAmount = fixedAmount;
     }
 
-    float calEarnings()
+    public float calEarnings()
     {
         return ((getRate()*getHoursWorked()) + getFixedAmount() + (getRate()*getHoursWorked()));
     }
@@ -29,7 +29,7 @@ public class FixedBasedPartTime extends PartTime{
     public void printMyData()
     {
         System.out.println("Employee is PartTime/Fixed ");
-        System.out.println("Fixed Amount:   " + getFixedAmount());
-        System.out.println("Earning:        " + calEarnings());
+        System.out.println("\tFixed Amount:   " + getFixedAmount());
+        System.out.println("\tEarning:        " + calEarnings());
     }
 }

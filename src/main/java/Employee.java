@@ -33,7 +33,8 @@ abstract public class Employee {
     {
         return (2018-age);
     }
-    abstract float calEarnings();
+
+    abstract public float calEarnings();
     /* {
         return (1000f);
     }*/
@@ -41,7 +42,7 @@ abstract public class Employee {
     public void printMyData()
     {
         System.out.println("Name:           " + getName());
-        System.out.println("Year of Birth : " + calBirthYear());
+        System.out.println("Year of Birth:  " + calBirthYear());
     }
 
 }

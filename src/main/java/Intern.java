@@ -20,7 +20,7 @@ public class Intern extends Employee {
         this.schoolName = schoolName;
     }
 
-    float calEarnings()
+    public float calEarnings()
     {
         return 1000;
     }
@@ -29,7 +29,7 @@ public class Intern extends Employee {
     public void printMyData()
     {
         System.out.println("Employee is Intern");
-        System.out.println("SchoolName:     " + getSchoolName());
-        System.out.println("Earnings:       " + calEarnings());
+        System.out.println("\tSchoolName:     " + getSchoolName());
+        System.out.println("\tEarnings:       " + calEarnings());
     }
 }

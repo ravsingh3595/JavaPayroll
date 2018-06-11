@@ -30,12 +30,12 @@ abstract public class PartTime extends Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    abstract float calEarnings();
+    abstract public float calEarnings();
 
     @Override
     public void printMyData()
     {
-        System.out.println("Rate:           " + getRate());
-        System.out.println("Hours Worked:   " + getHoursWorked());
+        System.out.println("\tRate:           " + getRate());
+        System.out.println("\tHours Worked:   " + getHoursWorked());
     }
 }

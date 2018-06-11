@@ -30,7 +30,7 @@ public class FullTime extends Employee {
         this.bonus = bonus;
     }
 
-    float calEarnings()
+    public float calEarnings()
     {
         return (getSalary() + getBonus());
     }
@@ -39,8 +39,8 @@ public class FullTime extends Employee {
     public void printMyData()
     {
         System.out.println("Employee is FullTime");
-        System.out.println("Salary:         " + getSalary());
-        System.out.println("Bonus:          " + getBonus());
-        System.out.println("Earnings:       " + calEarnings());
+        System.out.println("\tSalary:         " + getSalary());
+        System.out.println("\tBonus:          " + getBonus());
+        System.out.println("\tEarnings:       " + calEarnings());
     }
 }
