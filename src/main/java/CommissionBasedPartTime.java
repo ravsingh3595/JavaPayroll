@@ -21,19 +21,14 @@ public class CommissionBasedPartTime extends PartTime {
     }
 
     float calEarnings(){
-        return ((getRate()*getHoursWorked()) + commissionPercentage);
+        return ((getRate()*getHoursWorked()) + ((commissionPercentage/100) *(getRate()*getHoursWorked())));
     }
+    @Override
     public void printMyData()
     {
-        System.out.println("Name:           " + getName());
-        System.out.println("Year of Birth : " + calBirthYear());
         System.out.println("Employee is PartTime/Commissioned ");
-        System.out.println("Rate:           " + getRate());
-        System.out.println("Hours Worked:   " + getHoursWorked());
-        System.out.println("Commission:     " + getCommissionPercentage());
-
-
-
+        System.out.println("Commission:     " + getCommissionPercentage() +"%");
+        System.out.println("Earning:        " + calEarnings());
     }
 
 }

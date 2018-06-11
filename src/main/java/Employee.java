@@ -37,9 +37,11 @@ abstract public class Employee {
     /* {
         return (1000f);
     }*/
+
     public void printMyData()
     {
-
+        System.out.println("Name:           " + getName());
+        System.out.println("Year of Birth : " + calBirthYear());
     }
 
 }
