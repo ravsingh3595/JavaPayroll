@@ -3,6 +3,10 @@ public class Motorcycle extends Vehicle{
     float enginePower;
     float topSpeed;
 
+    public void Vehicle()
+    {
+
+    }
     public Motorcycle(){
         super();
     }

@@ -31,4 +31,11 @@ abstract public class PartTime extends Employee {
     }
 
     abstract float calEarnings();
+
+    @Override
+    public void printMyData()
+    {
+        System.out.println("Rate:           " + getRate());
+        System.out.println("Hours Worked:   " + getHoursWorked());
+    }
 }

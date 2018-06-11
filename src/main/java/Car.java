@@ -28,4 +28,6 @@ public class Car extends Vehicle {
     public void setSeatCount(int seatCount) {
         this.seatCount = seatCount;
     }
+
+    public void Vehicle() {System.out.print("a");}
 }
