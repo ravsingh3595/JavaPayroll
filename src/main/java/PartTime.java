@@ -32,6 +32,9 @@ abstract public class PartTime extends Employee {
 
     abstract public float calEarnings();
 
+   Vehicle v1 = new Motorcycle();
+   Vehicle v2 = new Car();
+
     @Override
     public void printMyData()
     {

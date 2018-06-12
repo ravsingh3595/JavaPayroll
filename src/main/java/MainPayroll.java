@@ -9,19 +9,20 @@ public class MainPayroll {
         int age;
         String type1;
         char type;
-        Scanner emp1 = new Scanner(System.in);
+        Scanner employee = new Scanner(System.in);
 
         System.out.print("Enter Your Name: " );
-        name = emp1.nextLine();
-        System.out.print("Enter Your Age: " );
-        age = emp1.nextInt();
+        name = employee.nextLine();
+        System.out.print("Enter Your Age: " );       //use try and catch here
+        age = employee.nextInt();
 
-        System.out.print("What type of Vehicle you drive," +
+        System.out.println("What type of Vehicle you drive," +
                 " Choose any option from the following " +
                 "\na. Car" +
                 "\nb. Motorcycle" +
                 "\nc. No vehicle/ Other \n" );
-        type1 = emp1.nextLine();
+
+        type1 = employee.next();
         type = type1.charAt(0);
 
         switch (type)
@@ -38,6 +39,9 @@ public class MainPayroll {
             case 'c':
             case 'C':
                 System.out.println("You don't like driving");
+                break;
+            default:
+                System.out.println("Incorrect Input");
                 break;
 
 

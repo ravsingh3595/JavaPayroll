@@ -35,6 +35,7 @@ public class Car extends Vehicle {
     @Override
     public void printMyData()
     {
+
         System.out.println("\tStore Space:    " + getStorageCapacity());
         System.out.println("\tNumber of Seats:" + getSeatCount());
     }
