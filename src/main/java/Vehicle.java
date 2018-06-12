@@ -57,7 +57,7 @@ abstract public class Vehicle {
         System.out.println("\tBrand:          " + getCompany());
         System.out.println("\tVehicle Number: " + getPlate());
         System.out.println("\tColour:         " + getColour());
-        System.out.println("Manufactured Year:" + getYear());
+        System.out.println("\tManufactured Year:" + getYear());
     }
 
 }
