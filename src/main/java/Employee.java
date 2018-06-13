@@ -39,8 +39,8 @@ abstract public class Employee {
         return (2018-age);
     }
 
-    Vehicle v1 = new Motorcycle();
-    Vehicle v2 = new Car();
+    Vehicle v1 = new Car();
+    Vehicle v2 = new Motorcycle();
 
     abstract public float calEarnings();
     /* {

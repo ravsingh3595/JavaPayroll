@@ -35,8 +35,12 @@ public class Car extends Vehicle {
     @Override
     public void printMyData()
     {
-
-        System.out.println("\tStore Space:    " + getStorageCapacity());
-        System.out.println("\tNumber of Seats:" + getSeatCount());
+        System.out.println("Employee has a Car ");
+        System.out.println("\tBrand:            " + getCompany());
+        System.out.println("\tVehicle Number:   " + getPlate());
+        System.out.println("\tColour:           " + getColour());
+        System.out.println("\tManufactured Year:" + getYear());
+        System.out.println("\tStore Space:      " + getStorageCapacity());
+        System.out.println("\tNumber of Seats:  " + getSeatCount());
     }
 }

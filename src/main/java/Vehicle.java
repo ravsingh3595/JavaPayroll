@@ -53,11 +53,7 @@ abstract public class Vehicle {
 
     public void printMyData()
     {
-        System.out.println("Employee has a  ");                     //how to order the lines because this data will come fro the other class
-        System.out.println("\tBrand:          " + getCompany());
-        System.out.println("\tVehicle Number: " + getPlate());
-        System.out.println("\tColour:         " + getColour());
-        System.out.println("\tManufactured Year:" + getYear());
+
     }
 
 }

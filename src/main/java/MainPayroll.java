@@ -4,11 +4,17 @@ import java.io.*;
 
 public class MainPayroll {
 
-    public static void main(String arg[]) throws IOException {
+    public static void main(String[] arg) throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
         System.out.println("Employee Database System");
+
+        //Object of all Child Classes
+        CommissionBasedPartTime empCom = new CommissionBasedPartTime();
+        FixedBasedPartTime empFix = new FixedBasedPartTime();
+        Intern empIntern = new Intern();
+        FullTime empFullTime = new FullTime();
 
 
         System.out.print("Employee Name: ");
@@ -49,14 +55,17 @@ public class MainPayroll {
                 float fCommission  = Float.parseFloat(sCommission);                //fCommission = float value of Commission
 
                 //Assigning values
-                CommissionBasedPartTime empCom = new CommissionBasedPartTime();
+                //CommissionBasedPartTime empCom = new CommissionBasedPartTime();
                 empCom.setName(empName);
                 empCom.setAge(empAge);
                 empCom.setRate(fPayC);
                 empCom.setHoursWorked(fHourWorkedC);
                 empCom.setCommissionPercentage(fCommission);
 
-                empCom.printMyData();
+                //printing all the data
+
+                //empCom.printMyData();
+
                 break;
 
             case "b":
@@ -77,7 +86,7 @@ public class MainPayroll {
                 float fFixedPay = Float.parseFloat(sFixedPay);                   //fFixedPay = float value of Fixed Based
 
                 //Assigning values
-                FixedBasedPartTime empFix = new FixedBasedPartTime();
+                //FixedBasedPartTime empFix = new FixedBasedPartTime();
                 empFix.setName(empName);
                 empFix.setAge(empAge);
                 empFix.setRate(fPayF);
@@ -95,7 +104,7 @@ public class MainPayroll {
                 String sSchoolName = br.readLine();                              //sSchoolName = String of School Name
 
                 //Assigning values
-                Intern empIntern = new Intern();
+                //Intern empIntern = new Intern();
                 empIntern.setName(empName);
                 empIntern.setAge(empAge);
                 empIntern.setSchoolName(sSchoolName);
@@ -116,7 +125,7 @@ public class MainPayroll {
                 float fBonus = Float.parseFloat(sBonus);                        //fBonus = float value of sBonus
 
                 //Assigning values
-                FullTime empFullTime = new FullTime();
+                //FullTime empFullTime = new FullTime();
                 empFullTime.setName(empName);
                 empFullTime.setAge(empAge);
                 empFullTime.setSalary(fSalary);
@@ -161,14 +170,55 @@ public class MainPayroll {
                 int iSeatC = Integer.parseInt(sSeatC);                                         //iSeatC = integer of sSeatC for car
 
                 //Assigning Values
-                Vehicle empCar = new Car();
+                /*Vehicle empCar = new Car();
                 empCar.setCompany(sBrandC);
                 empCar.setPlate(sPlateC);
                 empCar.setColour(sColourC);
                 empCar.setYear(iYearC);
                 ((Car) empCar).setStorageCapacity(fCapacityC);
                 ((Car) empCar).setSeatCount(iSeatC);
-                
+                */
+
+                if (employmentType.equals("a") || employmentType.equals("A") )
+                {
+                    empCom.v1.setCompany(sBrandC);
+                    empCom.v1.setPlate(sPlateC);
+                    empCom.v1.setColour(sColourC);
+                    empCom.v1.setYear(iYearC);
+                    ((Car) empCom.v1).setStorageCapacity(fCapacityC);
+                    ((Car) empCom.v1).setSeatCount(iSeatC);
+                }
+                if (employmentType.equals("b") || employmentType.equals("B") )
+                {
+                    empFix.v1.setCompany(sBrandC);
+                    empFix.v1.setPlate(sPlateC);
+                    empFix.v1.setColour(sColourC);
+                    empFix.v1.setYear(iYearC);
+                    ((Car) empFix.v1).setStorageCapacity(fCapacityC);
+                    ((Car) empFix.v1).setSeatCount(iSeatC);
+                }
+                if (employmentType.equals("c") || employmentType.equals("C") )
+                {
+                    empIntern.v1.setCompany(sBrandC);
+                    empIntern.v1.setPlate(sPlateC);
+                    empIntern.v1.setColour(sColourC);
+                    empIntern.v1.setYear(iYearC);
+                    ((Car) empIntern.v1).setStorageCapacity(fCapacityC);
+                    ((Car) empIntern.v1).setSeatCount(iSeatC);
+                }
+                if (employmentType.equals("d") || employmentType.equals("D") )
+                {
+                    empFullTime.v1.setCompany(sBrandC);
+                    empFullTime.v1.setPlate(sPlateC);
+                    empFullTime.v1.setColour(sColourC);
+                    empFullTime.v1.setYear(iYearC);
+                    ((Car) empFullTime.v1).setStorageCapacity(fCapacityC);
+                    ((Car) empFullTime.v1).setSeatCount(iSeatC);
+                }
+                else {
+                    //System.out.println("Incorrect Input for the vehicle type");
+                }
+
                 break;
 
             case "b":
@@ -192,7 +242,6 @@ public class MainPayroll {
                 String sSpeedM = br.readLine();                                              //sSpeedM = String of Top-Speed for motorcycle
                 float fSpeedM = Float.parseFloat(sSpeedM);                                   //fSpeedM = float of sSpeedM for motorcycle
 
-
                 //Assigning Values
                 Vehicle empMotorCycle = new Motorcycle();
                 empMotorCycle.setCompany(sBrandM);
@@ -201,7 +250,6 @@ public class MainPayroll {
                 empMotorCycle.setYear(iYearM);
                 ((Motorcycle) empMotorCycle).setEnginePower(fPowerM);
                 ((Motorcycle) empMotorCycle).setTopSpeed(fSpeedM);
-
 
                 break;
 
@@ -216,55 +264,16 @@ public class MainPayroll {
 
                 System.out.println("Incorrect Input");
                 break;
-
         }
-
-
+        System.out.println("Want to print output");
+        String output = br.readLine();
+        if(output.equals("yes") || output.equals("Yes") || output.equals("YES")) {
+            empCom.printMyData();
+            empCom.v1.printMyData();
+        }
+        else
+            {
+                System.out.println("Thank You!, Bye");
+            }
     }
 }
-
-/*
- String name;
-        int age;
-        String type1;
-        char type;
-        Scanner employee = new Scanner(System.in);
-
-        System.out.print("Enter Your Name: " );
-        name = employee.nextLine();
-
-        System.out.print("Enter Your Age: " );       //use try and catch here
-        age = employee.nextInt();
-
-        System.out.println("What type of Vehicle you drive," +
-                " Choose any option from the following " +
-                "\na. Car" +
-                "\nb. Motorcycle" +
-                "\nc. No vehicle/ Other \n" );
-
-        type1 = employee.next();
-        type = type1.charAt(0);
-
-        switch (type)
-        {
-            case 'a':
-            case 'A':
-                System.out.println("You have a Car");
-                break;
-            case 'b':
-            case 'B':
-                System.out.println("You have a MotorCycle");
-                break;
-            case 'c':
-            case 'C':
-                System.out.println("You don't like driving");
-                break;
-            default:
-                System.out.println("Incorrect Input");
-                break;
-
- */
-
-
-//        Employee e1 = new CommissionBasedPartTime("Ravneet Singh", 23, 14f, 20f, 10f);
-//        e1.printMyData();
