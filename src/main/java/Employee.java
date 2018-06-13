@@ -29,10 +29,18 @@ abstract public class Employee {
         this.age = age;
     }
 
-    public int calBirthYear()
+    public void setCalBirthYear(int age)
+    {
+        this.age = age;
+    }
+
+    public int getCalBirthYear()
     {
         return (2018-age);
     }
+
+    Vehicle v1 = new Motorcycle();
+    Vehicle v2 = new Car();
 
     abstract public float calEarnings();
     /* {
@@ -41,8 +49,7 @@ abstract public class Employee {
 
     public void printMyData()
     {
-        System.out.println("Name:           " + getName());
-        System.out.println("Year of Birth:  " + calBirthYear());
+
     }
 
 }
