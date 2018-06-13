@@ -20,7 +20,7 @@ public class MainPayroll {
         System.out.print("Age: ");
         String a1 = br.readLine();
         int a = Integer.parseInt(a1);
-        employeeC.setCalBirthYear(a);
+        //employeeC.setCalBirthYear(a);
 
         System.out.print("Select your Employment type," +
                 " Choose any option from the following " +
