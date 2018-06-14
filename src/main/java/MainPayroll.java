@@ -1,12 +1,15 @@
 
 //import java.util.Scanner;
+import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class MainPayroll {
 
     public static void main(String arg[]) throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
+       ArrayList employee = new ArrayList<>();
 
         System.out.println("Employee Database System");
         CommissionBasedPartTime employeeC = new CommissionBasedPartTime();
@@ -21,6 +24,11 @@ public class MainPayroll {
         String a1 = br.readLine();
         int a = Integer.parseInt(a1);
         //employeeC.setCalBirthYear(a);
+
+       // ArrayList<object> employee = new ArrayList<>();
+
+
+        //employee.add(employeeC);
 
         System.out.print("Select your Employment type," +
                 " Choose any option from the following " +
@@ -46,7 +54,13 @@ public class MainPayroll {
                 System.out.println("Enter the Commission: ");
                 String a4 = br.readLine();
                 int a5 = Integer.parseInt(a4);
-                employeeC.setCommissionPercentage(a5);      //change the format to flaot right now getting int.
+                employeeC.setCommissionPercentage(a5);
+                employee.add(employeeC);
+                System.out.println("Name is : "+employeeC.getName()+"\nAge is :"+employeeC.getAge()+"\nHourly Pay :"+employeeC.getRate()
+                +"\nHours Worked : "+employeeC.getHoursWorked()+"\nCommission :"+employeeC.getCommissionPercentage());
+
+
+                //change the format to flaot right now getting int.
                 break;
 
             case "b":
@@ -63,7 +77,10 @@ public class MainPayroll {
                 System.out.println("Enter your Fixed pay: ");
                 String a10 = br.readLine();
                 int a11 = Integer.parseInt(a10);
-                empF.setFixedAmount(a11);                    //change the format to flaot right now getting int.
+                empF.setFixedAmount(a11);
+                employee.add(empF);
+                System.out.println("hourly pay : "+empF.getRate()+"\nNumber of hours worked :"+empF.getHoursWorked()+"\nFixed Pay :"+empF.getFixedAmount()
+                        );//change the format to flaot right now getting int.
                 break;
 
             case "c":
@@ -72,6 +89,9 @@ public class MainPayroll {
                 System.out.println("Intern");
                 System.out.println("Enter your School Name: ");
                 empData.setSchoolName(br.readLine());
+                employee.add(empData);
+                System.out.println("School Name is : "+empData.getSchoolName());
+
                 break;
 
             case "d":
@@ -86,12 +106,16 @@ public class MainPayroll {
                 String a14 = br.readLine();
                 int a15 = Integer.parseInt(a14);
                 employeeData.setBonus(a15);
+                employee.add(employeeData);
+                System.out.println("Salary is : "+employeeData.getSalary()+"\nBonus you got :"+employeeData.getBonus()
+                );
                 break;
 
             default:
                 System.out.println("Incorrect Input");
                 break;
         }
+        //System.out.println(employee("rupinder",21));
 //
 //        System.out.println("What type of Vehicle you drive," +
 //                " Choose any option from the following " +
@@ -122,7 +146,20 @@ public class MainPayroll {
 //        }break
 
     }
-}
+
+    //private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
+        }
+
+    //private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
+
+    //}
+
+
+    // private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
+
+
+
+
 
 /*
  String name;
