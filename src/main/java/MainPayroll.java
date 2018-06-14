@@ -9,13 +9,16 @@ public class MainPayroll {
     public static void main(String arg[]) throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
-       ArrayList employee = new ArrayList<>();
+        ArrayList employee = new ArrayList<>();
 
         System.out.println("Employee Database System");
         CommissionBasedPartTime employeeC = new CommissionBasedPartTime();
         FixedBasedPartTime empF = new FixedBasedPartTime();
         FullTime employeeData = new FullTime();
         Intern empData = new Intern();
+        Car car= new Car();
+        Motorcycle motorcycle=new Motorcycle();
+
         //Employee e1 = new Employee();
 
         System.out.print("Employee Name: ");
@@ -25,7 +28,7 @@ public class MainPayroll {
         int a = Integer.parseInt(a1);
         //employeeC.setCalBirthYear(a);
 
-       // ArrayList<object> employee = new ArrayList<>();
+        // ArrayList<object> employee = new ArrayList<>();
 
 
         //employee.add(employeeC);
@@ -40,6 +43,8 @@ public class MainPayroll {
         // System.out.print("hello");
         String employmentType = br.readLine();
         //System.out.println(employmentType);
+
+
         switch (employmentType) {
             case "a":
             case "A":
@@ -56,8 +61,8 @@ public class MainPayroll {
                 int a5 = Integer.parseInt(a4);
                 employeeC.setCommissionPercentage(a5);
                 employee.add(employeeC);
-                System.out.println("Name is : "+employeeC.getName()+"\nAge is :"+employeeC.getAge()+"\nHourly Pay :"+employeeC.getRate()
-                +"\nHours Worked : "+employeeC.getHoursWorked()+"\nCommission :"+employeeC.getCommissionPercentage());
+                System.out.println("Name is : " + employeeC.getName() + "\nAge is :" + employeeC.getAge() + "\nHourly Pay :" + employeeC.getRate()
+                        + "\nHours Worked : " + employeeC.getHoursWorked() + "\nCommission :" + employeeC.getCommissionPercentage());
 
 
                 //change the format to flaot right now getting int.
@@ -79,8 +84,8 @@ public class MainPayroll {
                 int a11 = Integer.parseInt(a10);
                 empF.setFixedAmount(a11);
                 employee.add(empF);
-                System.out.println("hourly pay : "+empF.getRate()+"\nNumber of hours worked :"+empF.getHoursWorked()+"\nFixed Pay :"+empF.getFixedAmount()
-                        );//change the format to flaot right now getting int.
+                System.out.println("hourly pay : " + empF.getRate() + "\nNumber of hours worked :" + empF.getHoursWorked() + "\nFixed Pay :" + empF.getFixedAmount()
+                );//change the format to flaot right now getting int.
                 break;
 
             case "c":
@@ -90,7 +95,7 @@ public class MainPayroll {
                 System.out.println("Enter your School Name: ");
                 empData.setSchoolName(br.readLine());
                 employee.add(empData);
-                System.out.println("School Name is : "+empData.getSchoolName());
+                System.out.println("School Name is : " + empData.getSchoolName());
 
                 break;
 
@@ -107,7 +112,7 @@ public class MainPayroll {
                 int a15 = Integer.parseInt(a14);
                 employeeData.setBonus(a15);
                 employee.add(employeeData);
-                System.out.println("Salary is : "+employeeData.getSalary()+"\nBonus you got :"+employeeData.getBonus()
+                System.out.println("Salary  : " + employeeData.getSalary() + "\nBonus you got :" + employeeData.getBonus()
                 );
                 break;
 
@@ -115,47 +120,86 @@ public class MainPayroll {
                 System.out.println("Incorrect Input");
                 break;
         }
-        //System.out.println(employee("rupinder",21));
-//
-//        System.out.println("What type of Vehicle you drive," +
-//                " Choose any option from the following " +
-//                "\na. Car" +
-//                "\nb. Motorcycle" +
-//                "\nc. No vehicle/ Other \n" );
-//
-//        String veh = br.readLine();
-//
-//        switch (veh)
-//        {
-//            case "a":
-//            case 'A':
-//                System.out.println("You have a Car");
-//                break;
-//            case 'b':
-//            case 'B':
-//                System.out.println("You have a MotorCycle");
-//                break;
-//            case 'c':
-//            case 'C':
-//                System.out.println("You don't like driving");
-//                break;
-//            default:
-//                System.out.println("Incorrect Input");
-//                break;
-//
-//        }break
+
+
+        System.out.println("What type of Vehicle you drive," +
+                " Choose any option from the following " +
+                "\na. Car" +
+                "\nb. Motorcycle" +
+                "\nc. No vehicle/ Other \n");
+
+        String veh = br.readLine();
+        switch (veh) {
+            case "a":
+            case "A":
+                System.out.println("You have a Car");
+                System.out.println("Company Name: ");
+                //String a16 = br.readLine();
+                //int a17 = Integer.parseInt(a16);
+                //car.setCompany(a17);
+                car.setCompany(br.readLine());
+                System.out.println("Plate Name: ");
+                car.setPlate(br.readLine());
+                System.out.println("Car Colour: ");
+                car.setColour(br.readLine());
+                System.out.println("CarStorageCapacity: ");
+                String a16 = br.readLine();
+                int a17 = Integer.parseInt(a16);
+                car.setStorageCapacity(a17);
+                //car.setStorageCapacity(br.readLine());
+                System.out.println("Number of seat: ");
+                String a18 = br.readLine();
+                int a19 = Integer.parseInt(a18);
+                car.setStorageCapacity(a19);
+                //car.setSeatCount(br.readLine());
+                employee.add(car);
+                System.out.println("Company Name : " + car.getCompany() +"Plate Name : " + car.getPlate() + "\nCar Colour :" + car.getColour() + "\nCarStorageCapacity :" + car.getStorageCapacity()+ "\nNumber of seat:" + car.getSeatCount()
+                );
+
+                break;
+            case "b":
+            case "B":
+                System.out.println("You have a MotorCycle");
+                System.out.println("Company Name: ");
+                motorcycle.setCompany(br.readLine());
+                System.out.println("Plate Name: ");
+                motorcycle.setPlate(br.readLine());
+                System.out.println("Motercycle Colour: ");
+                motorcycle.setColour(br.readLine());
+                System.out.println("EnginePower: ");
+                String a20 = br.readLine();
+                int a21 = Integer.parseInt(a20);
+                motorcycle.setEnginePower(a21);
+                System.out.println("setTopSpeed: ");
+                String a22 = br.readLine();
+                int a23 = Integer.parseInt(a22);
+                motorcycle.setTopSpeed(a23);
+                employee.add(motorcycle);
+                System.out.println("Company Name : " + motorcycle.getCompany() +"Plate Name : " + motorcycle.getPlate() + "\nMotercycle Colour :" +motorcycle.getColour () + "\nEnginePower: :" + motorcycle.getEnginePower()+ "\nsetTopSpeed:" +motorcycle.getTopSpeed()
+                );
+
+                break;
+            case "c":
+            case "C":
+                System.out.println("You don't like driving");
+                break;
+            default:
+                System.out.println("Incorrect Input");
+                break;
+
+        }
+
+    }}
+
+  /*  private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
+        }
+
+    private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
 
     }
 
-    //private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
-        }
 
-    //private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
-
-    //}
-
-
-    // private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
+    private static Object employeeC(String rupi, int i, int i1, int i2, int i3) {
 
 
 
