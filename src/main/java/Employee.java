@@ -2,6 +2,7 @@ abstract public class Employee {
 
     private String name;
     private int age;
+    private Vehicle vehicle;
 
     public Employee()
     {
@@ -39,8 +40,13 @@ abstract public class Employee {
         return (2018-age);
     }
 
-    Vehicle v1 = new Car();
-    Vehicle v2 = new Motorcycle();
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 
     abstract public float calEarnings();
     /* {

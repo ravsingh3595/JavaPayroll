@@ -5,33 +5,31 @@ import java.util.ArrayList;
 
 public class MainPayroll {
 
-    static int index = 0;
+    static InputStreamReader isr = new InputStreamReader(System.in);
+    static BufferedReader br = new BufferedReader(isr);
+    static int count = 0;
+    static float a = 0;
+
+
     public static void main(String[] arg) {
 
-        ArrayList<Employee> arrayListEmployee = new ArrayList<>();
 
-        //Object of all Child Classes
-        CommissionBasedPartTime empCom = new CommissionBasedPartTime();
-        FixedBasedPartTime empFix = new FixedBasedPartTime();
-        Intern empIntern = new Intern();
-        FullTime empFullTime = new FullTime();
-
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(isr);
-
+        InputStreamReader isr1 = new InputStreamReader(System.in);
+        BufferedReader br1 = new BufferedReader(isr1);
+        boolean cont = true;
         String repeat = "n";
         String veh = null;
         String employmentType = null;
+        System.out.println("Employee Database System");
 
         do{
-            index++;
-            System.out.println("Employee Database System");
+            count++;
 
             System.out.print("Employee Name: ");
             try {
-                String empName = br.readLine();
+                String empName = br1.readLine();
                 System.out.print("Age: ");
-                String sEmpAge = br.readLine();                                             //sEmpAge = String of empAge
+                String sEmpAge = br1.readLine();                                             //sEmpAge = String of empAge
                 int empAge = Integer.parseInt(sEmpAge);
 
                 do {
@@ -51,32 +49,60 @@ public class MainPayroll {
                             System.out.println("Commission Based PartTime Employee");
 
                             System.out.println("Enter your hourly pay:");
-                            String sPayC = br.readLine();                                       //sPayC = String of hourly pay for Commission
+                            String sPayC = br1.readLine();                                       //sPayC = String of hourly pay for Commission
                             float fPayC = Float.parseFloat(sPayC);                              //fPayC = float value of sPay for Commission
 
 
                             System.out.println("Enter Number of hours worked: ");
-                            String sHourWorkedC = br.readLine();                                //sHourWorkedC = String of hours worked for Commission
+                            String sHourWorkedC = br1.readLine();                                //sHourWorkedC = String of hours worked for Commission
                             float fHourWorkedC = Float.parseFloat(sHourWorkedC);                //fHourWorkedC = float value of sHourWorked for Commission
 
                             System.out.println("Enter the Commission: ");
-                            String sCommission = br.readLine();                                //sCommission = String of Commission
+                            String sCommission = br1.readLine();                                //sCommission = String of Commission
                             float fCommission = Float.parseFloat(sCommission);                 //fCommission = float value of Commission
 
-                            //Assigning values
-                            //CommissionBasedPartTime empCom = new CommissionBasedPartTime();
+                            CommissionBasedPartTime empCom = new CommissionBasedPartTime();
+
+                            System.out.println("What type of Vehicle you drive," +
+                                    " Choose any option from the following " +
+                                    "\na. Car" +
+                                    "\nb. Motorcycle" +
+                                    "\nc. No Vehicle\n");
+
+                            veh = br1.readLine();
+
+                            if (veh.equals("a") || veh.equals("A")) {
+                                empCom.setVehicle(new Car());
+                                MainPayroll.setCarDetails(empCom);
+                            }
+                            if(veh.equals("b") || veh.equals("B")) {
+                                empCom.setVehicle(new Motorcycle());
+                                MainPayroll.setMotorcycleDetails(empCom);
+                            }
+                            else if(veh.equals("c") || veh.equals("C"))
+                            {
+                                System.out.println("Employee has no vehicle");
+                            }
+
+                                //Assigning values
                             empCom.setName(empName);
                             empCom.setAge(empAge);
                             empCom.setRate(fPayC);
                             empCom.setHoursWorked(fHourWorkedC);
                             empCom.setCommissionPercentage(fCommission);
-                            
+
+                        SingletonClass.getInstance().arrayListEmployee.add(empCom);
+                        GenerateUserDetailsPDF pdf = new GenerateUserDetailsPDF();
+                        pdf.generateUserDetailsPDF(empCom);
+                        pdf.setBackToTopLink();
+                            cont = false;
                             break;
 
                         case "b":
                         case "B":
 
                             System.out.println("Fixed Based PartTime Employee");
+                            FixedBasedPartTime empFix = new FixedBasedPartTime();
 
                             System.out.println("Enter your hourly pay:");
                             String sPayF = br.readLine();                                    //sPayF = String of hourly pay for Fixed Based
@@ -90,36 +116,82 @@ public class MainPayroll {
                             String sFixedPay = br.readLine();                                //sFixedPay = String of Fixed Based
                             float fFixedPay = Float.parseFloat(sFixedPay);                   //fFixedPay = float value of Fixed Based
 
+
+                            System.out.println("What type of Vehicle you drive," +
+                                    " Choose any option from the following " +
+                                    "\na. Car" +
+                                    "\nb. Motorcycle" +
+                                    "\nc. No Vehicle\n");
+
+                            veh = br1.readLine();
+
+                            if (veh.equals("a") || veh.equals("A")) {
+                                empFix.setVehicle(new Car());
+                                MainPayroll.setCarDetails(empFix);
+                            }
+                            if(veh.equals("b") || veh.equals("B")) {
+                                empFix.setVehicle(new Motorcycle());
+                                MainPayroll.setMotorcycleDetails(empFix);
+                            }
+                            else if(veh.equals("c") || veh.equals("C"))
+                            {
+                                System.out.println("Employee has no vehicle");
+                            }
+
                             //Assigning values
-                            //FixedBasedPartTime empFix = new FixedBasedPartTime();
                             empFix.setName(empName);
                             empFix.setAge(empAge);
                             empFix.setRate(fPayF);
                             empFix.setHoursWorked(fHourWorkedF);
                             empFix.setFixedAmount(fFixedPay);
-
+                            SingletonClass.getInstance().arrayListEmployee.add(empFix);
+                            cont = false;
                             break;
 
                         case "c":
                         case "C":
 
                             System.out.println("Intern");
+                            Intern empIntern = new Intern();
 
                             System.out.println("Enter your School Name: ");
                             String sSchoolName = br.readLine();                              //sSchoolName = String of School Name
 
                             //Assigning values
-                            //Intern empIntern = new Intern();
+
                             empIntern.setName(empName);
                             empIntern.setAge(empAge);
                             empIntern.setSchoolName(sSchoolName);
 
+                            System.out.println("What type of Vehicle you drive," +
+                                    " Choose any option from the following " +
+                                    "\na. Car" +
+                                    "\nb. Motorcycle" +
+                                    "\nc. No Vehicle\n");
+                            veh = br1.readLine();
+
+                            if (veh.equals("a") || veh.equals("A")) {
+                                empIntern.setVehicle(new Car());
+                                MainPayroll.setCarDetails(empIntern);
+                            }
+                            if(veh.equals("b") || veh.equals("B")) {
+                                empIntern.setVehicle(new Motorcycle());
+                                MainPayroll.setMotorcycleDetails(empIntern);
+                            }
+                            else if(veh.equals("c") || veh.equals("C"))
+                            {
+                                System.out.println("Employee has no vehicle");
+                            }
+
+                            SingletonClass.getInstance().arrayListEmployee.add(empIntern);
+                            cont = false;
                             break;
 
                         case "d":
                         case "D":
 
                             System.out.println("FullTime Employee");
+                            FullTime empFullTime = new FullTime();
 
                             System.out.println("Enter your Salary: ");
                             String sSalary = br.readLine();                                 //sSalary = String of Salary
@@ -129,201 +201,66 @@ public class MainPayroll {
                             String sBonus = br.readLine();                                  //sBonus = String of Bonus
                             float fBonus = Float.parseFloat(sBonus);                        //fBonus = float value of sBonus
 
+                            System.out.println("What type of Vehicle you drive," +
+                                    " Choose any option from the following " +
+                                    "\na. Car" +
+                                    "\nb. Motorcycle" +
+                                    "\nc. No Vehicle\n");
+                            veh = br1.readLine();
+
+                            if (veh.equals("a") || veh.equals("A")) {
+                                empFullTime.setVehicle(new Car());
+                                MainPayroll.setCarDetails(empFullTime);
+                            }
+                            if(veh.equals("b") || veh.equals("B")) {
+                                empFullTime.setVehicle(new Motorcycle());
+                                MainPayroll.setMotorcycleDetails(empFullTime);
+                            }
+                            else if(veh.equals("c") || veh.equals("C"))
+                            {
+                                System.out.println("Employee has no vehicle");
+                            }
+
                             //Assigning values
-                            //FullTime empFullTime = new FullTime();
                             empFullTime.setName(empName);
                             empFullTime.setAge(empAge);
                             empFullTime.setSalary(fSalary);
                             empFullTime.setBonus(fBonus);
-
+                            SingletonClass.getInstance().arrayListEmployee.add(empFullTime);
+                            cont = false;
                             break;
 
                         default:
                             System.out.println("Incorrect Input");
+                            cont = true;
                             break;
                     }
-                }while (employmentType != ("a") && !employmentType.equals("b") && !employmentType.equals("c")&& !employmentType.equals("d"));
+                }while (cont);
 
-                do {
-                    System.out.println("What type of Vehicle you drive," +
-                            " Choose any option from the following " +
-                            "\na. Car" +
-                            "\nb. Motorcycle");
-                    // "\nc. No vehicle/ Other \n");
 
-                    veh = br.readLine();
-
-                    switch (veh) {
-
-                        case "a":
-                        case "A":
-
-                            System.out.println("You have a Car");
-
-                            System.out.println("Enter the Brand of the car you drive ");
-                            String sBrandC = br.readLine();                                                //sSalaryC = String of Brand for car
-                            System.out.println("What is your Car's Plate Number? ");
-                            String sPlateC = br.readLine();                                                //sSalaryC = String of plate for car
-                            System.out.println("What is the colour of your car? ");
-                            String sColourC = br.readLine();                                               //sColourC = String of colour for car
-                            System.out.println("What is the manufacturing year of your car? ");
-                            String sYearC = br.readLine();                                                 //sYearC = String of plate for car
-                            int iYearC = Integer.parseInt(sYearC);                                         //iYearC = integer of sYearC for car
-                            System.out.println("What is the Storage capacity of your car in litres? ");
-                            String sCapacityC = br.readLine();                                             //sCapacityC = String of Capacity for car
-                            float fCapacityC = Float.parseFloat(sCapacityC);                               //fCapacityC = float of sCapacityC for car
-                            System.out.println("What is the seat count of your car? ");
-                            String sSeatC = br.readLine();                                                 //sSeatC = String of Seat Count for car
-                            int iSeatC = Integer.parseInt(sSeatC);                                         //iSeatC = integer of sSeatC for car
-
-                            //Assigning Values
-                            /*Vehicle empCar = new Car();
-                            empCar.setCompany(sBrandC);
-                            empCar.setPlate(sPlateC);
-                            empCar.setColour(sColourC);
-                            empCar.setYear(iYearC);
-                            ((Car) empCar).setStorageCapacity(fCapacityC);
-                            ((Car) empCar).setSeatCount(iSeatC);
-                            */
-
-                            if (employmentType.equals("a") || employmentType.equals("A")) {
-                                empCom.v1.setCompany(sBrandC);
-                                empCom.v1.setPlate(sPlateC);
-                                empCom.v1.setColour(sColourC);
-                                empCom.v1.setYear(iYearC);
-                                ((Car) empCom.v1).setStorageCapacity(fCapacityC);
-                                ((Car) empCom.v1).setSeatCount(iSeatC);
-                                arrayListEmployee.add(empCom);
-                            }
-                            if (employmentType.equals("b") || employmentType.equals("B")) {
-                                empFix.v1.setCompany(sBrandC);
-                                empFix.v1.setPlate(sPlateC);
-                                empFix.v1.setColour(sColourC);
-                                empFix.v1.setYear(iYearC);
-                                ((Car) empFix.v1).setStorageCapacity(fCapacityC);
-                                ((Car) empFix.v1).setSeatCount(iSeatC);
-                                arrayListEmployee.add(empFix);
-                            }
-                            if (employmentType.equals("c") || employmentType.equals("C")) {
-                                empIntern.v1.setCompany(sBrandC);
-                                empIntern.v1.setPlate(sPlateC);
-                                empIntern.v1.setColour(sColourC);
-                                empIntern.v1.setYear(iYearC);
-                                ((Car) empIntern.v1).setStorageCapacity(fCapacityC);
-                                ((Car) empIntern.v1).setSeatCount(iSeatC);
-                                arrayListEmployee.add(empIntern);
-                            }
-                            if (employmentType.equals("d") || employmentType.equals("D")) {
-                                empFullTime.v1.setCompany(sBrandC);
-                                empFullTime.v1.setPlate(sPlateC);
-                                empFullTime.v1.setColour(sColourC);
-                                empFullTime.v1.setYear(iYearC);
-                                ((Car) empFullTime.v1).setStorageCapacity(fCapacityC);
-                                ((Car) empFullTime.v1).setSeatCount(iSeatC);
-                                arrayListEmployee.add(empFullTime);
-                            }
-
-                            break;
-
-                        case "b":
-                        case "B":
-
-                            System.out.println("You have a MotorCycle");
-
-                            System.out.println("Enter the Brand of the MotorCycle you drive ");
-                            String sBrandM = br.readLine();                                               //sSalaryM = String of Brand for motorcycle
-                            System.out.println("What is your MotorCycle's Plate Number? ");
-                            String sPlateM = br.readLine();                                               //sSalaryM = String of plate for motorcycle
-                            System.out.println("What is the colour of your MotorCycle? ");
-                            String sColourM = br.readLine();                                              //sColourM = String of colour for motorcycle
-                            System.out.println("What is the manufacturing year of your MotorCycle? ");
-                            String sYearM = br.readLine();                                                //sYearM = String of plate for motorcycle
-                            int iYearM = Integer.parseInt(sYearM);                                        //iYearM = integer of sYear for motorcycle
-                            System.out.println("Which CC bike you drive?");
-                            String sPowerM = br.readLine();                                              //sPowerM = String of Horse-Power for motorcycle
-                            float fPowerM = Float.parseFloat(sPowerM);                                   //fPowerM = float of sPowerM for motorcycle
-                            System.out.println("What is the Top-speed of your MotorCycle? ");
-                            String sSpeedM = br.readLine();                                              //sSpeedM = String of Top-Speed for motorcycle
-                            float fSpeedM = Float.parseFloat(sSpeedM);                                   //fSpeedM = float of sSpeedM for motorcycle
-
-                            /*
-                           // Assigning Values
-                            Vehicle empMotorCycle = new Motorcycle();
-                            empMotorCycle.setCompany(sBrandM);
-                            empMotorCycle.setPlate(sPlateM);
-                            empMotorCycle.setColour(sColourM);
-                            empMotorCycle.setYear(iYearM);
-                            ((Motorcycle) empMotorCycle).setEnginePower(fPowerM);
-                            ((Motorcycle) empMotorCycle).setTopSpeed(fSpeedM);
-                            */
-
-                            if (employmentType.equals("a") || employmentType.equals("A")) {
-                                empCom.v2.setCompany(sBrandM);
-                                empCom.v2.setPlate(sPlateM);
-                                empCom.v2.setColour(sColourM);
-                                empCom.v2.setYear(iYearM);
-                                ((Motorcycle) empCom.v2).setEnginePower(fPowerM);
-                                ((Motorcycle) empCom.v2).setTopSpeed(fSpeedM);
-                                arrayListEmployee.add(empCom);
-                            }
-                            if (employmentType.equals("b") || employmentType.equals("B")) {
-                                empFix.v2.setCompany(sBrandM);
-                                empFix.v2.setPlate(sPlateM);
-                                empFix.v2.setColour(sColourM);
-                                empFix.v2.setYear(iYearM);
-                                ((Motorcycle) empFix.v2).setEnginePower(fPowerM);
-                                ((Motorcycle) empFix.v2).setTopSpeed(fSpeedM);
-                                arrayListEmployee.add(empFix);
-                            }
-                            if (employmentType.equals("c") || employmentType.equals("C")) {
-                                empIntern.v2.setCompany(sBrandM);
-                                empIntern.v2.setPlate(sPlateM);
-                                empIntern.v2.setColour(sColourM);
-                                empIntern.v2.setYear(iYearM);
-                                ((Motorcycle) empIntern.v2).setEnginePower(fPowerM);
-                                ((Motorcycle) empIntern.v2).setTopSpeed(fSpeedM);
-                                arrayListEmployee.add(empIntern);
-                            }
-                            if (employmentType.equals("d") || employmentType.equals("D")) {
-                                empFullTime.v2.setCompany(sBrandM);
-                                empFullTime.v2.setPlate(sPlateM);
-                                empFullTime.v2.setColour(sColourM);
-                                empFullTime.v2.setYear(iYearM);
-                                ((Motorcycle) empFullTime.v2).setEnginePower(fPowerM);
-                                ((Motorcycle) empFullTime.v2).setTopSpeed(fSpeedM);
-                                arrayListEmployee.add(empFullTime);
-                            }
-
-                            break;
-                        default:
-
-                            System.out.println("Incorrect Input");
-                            break;
-                    }
-                }while (!veh.equals("a") && !veh.equals("b"));
             System.out.println("Do you want to add more data? yes/no");
-                repeat = br.readLine();
+                repeat = br1.readLine();
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+            a = a+  SingletonClass.getInstance().getEmployeeByIndex(count).calEarnings();
+            System.out.println("Total Earning: " + a );
         }
         while(repeat.equals("yes") || repeat.equals("Yes") || repeat.equals("YES"));
 
-        System.out.println("Want to print the details of last upadated employee?");
+        System.out.println("Want to print the details of last upadated employee? yes/no");
         try {
             String output = br.readLine();
             if (output.equals("yes") || output.equals("Yes") || output.equals("YES")) {
 
-                Employee e = arrayListEmployee.get(index-1);
+                Employee e = SingletonClass.getInstance().getEmployeeByIndex(count-1);
                 e.printMyData();
-                if (veh.equals("a") || veh.equals("A")) {
-                    e.v1.printMyData();
-                } else if (veh.equals("b") || veh.equals("B")) {
-                    e.v2.printMyData();
-                }
-            } else {
+                if (veh.equals("a") || veh.equals("A") || veh.equals("b") || veh.equals("B"))
+                {e.getVehicle().printMyData();}
+
+            } else if (veh.equals("c") || veh.equals("C")){
                 System.out.println("Thank You!, Bye");
             }
         }
@@ -331,6 +268,62 @@ public class MainPayroll {
             e.printStackTrace();
         }
     }
+
+    public static void setCarDetails(Employee emp) throws IOException{
+        System.out.println("setcar details running");
+        System.out.println("You have a Car");
+        System.out.println("Enter the Brand of the car you drive ");
+        String sBrandC = br.readLine();                                                //sSalaryC = String of Brand for car
+        System.out.println("What is your Car's Plate Number? ");
+        String sPlateC = br.readLine();                                                //sSalaryC = String of plate for car
+        System.out.println("What is the colour of your car? ");
+        String sColourC = br.readLine();                                               //sColourC = String of colour for car
+        System.out.println("What is the manufacturing year of your car? ");
+        String sYearC = br.readLine();                                                 //sYearC = String of plate for car
+        int iYearC = Integer.parseInt(sYearC);                                         //iYearC = integer of sYearC for car
+        System.out.println("What is the Storage capacity of your car in litres? ");
+        String sCapacityC = br.readLine();                                             //sCapacityC = String of Capacity for car
+        float fCapacityC = Float.parseFloat(sCapacityC);                               //fCapacityC = float of sCapacityC for car
+        System.out.println("What is the seat count of your car? ");
+        String sSeatC = br.readLine();                                                 //sSeatC = String of Seat Count for car
+        int iSeatC = Integer.parseInt(sSeatC);                                         //iSeatC = integer of sSeatC for car
+        emp.getVehicle().setCompany(sBrandC);
+        emp.getVehicle().setPlate(sPlateC);
+        emp.getVehicle().setColour(sColourC);
+        emp.getVehicle().setYear(iYearC);
+        ((Car) emp.getVehicle()).setStorageCapacity(fCapacityC);
+        ((Car) emp.getVehicle()).setSeatCount(iSeatC);
+    }
+
+    public static void setMotorcycleDetails(Employee emp) throws  IOException{
+        System.out.println("You have a MotorCycle");
+
+        System.out.println("Enter the Brand of the MotorCycle you drive ");
+        String sBrandM = br.readLine();                                               //sSalaryM = String of Brand for motorcycle
+        System.out.println("What is your MotorCycle's Plate Number? ");
+        String sPlateM = br.readLine();                                               //sSalaryM = String of plate for motorcycle
+        System.out.println("What is the colour of your MotorCycle? ");
+        String sColourM = br.readLine();                                              //sColourM = String of colour for motorcycle
+        System.out.println("What is the manufacturing year of your MotorCycle? ");
+        String sYearM = br.readLine();                                                //sYearM = String of plate for motorcycle
+        int iYearM = Integer.parseInt(sYearM);                                        //iYearM = integer of sYear for motorcycle
+        System.out.println("Which CC bike you drive?");
+        String sPowerM = br.readLine();                                              //sPowerM = String of Horse-Power for motorcycle
+        float fPowerM = Float.parseFloat(sPowerM);                                   //fPowerM = float of sPowerM for motorcycle
+        System.out.println("What is the Top-speed of your MotorCycle? ");
+        String sSpeedM = br.readLine();                                              //sSpeedM = String of Top-Speed for motorcycle
+        float fSpeedM = Float.parseFloat(sSpeedM);
+
+        emp.getVehicle().setCompany(sBrandM);
+        emp.getVehicle().setPlate(sPlateM);
+        emp.getVehicle().setColour(sColourM);
+        emp.getVehicle().setYear(iYearM);
+        ((Motorcycle) emp.getVehicle()).setEnginePower(fPowerM);
+        ((Motorcycle) emp.getVehicle()).setTopSpeed(fSpeedM);
+
+
+    }
+
 }
 /*
         for (int i = 0; i < arrayListEmployee.size() ; i++) {
@@ -339,3 +332,4 @@ public class MainPayroll {
 import java.util.ArrayList;
 
     */
+
