@@ -38,6 +38,8 @@ public class FullTime extends Employee {
     @Override
     public void printMyData()
     {
+        System.out.println("Name:           " + getName());
+        System.out.println("Year of Birth:  " + getCalBirthYear());
         System.out.println("Employee is FullTime");
         System.out.println("\tSalary:         " + getSalary());
         System.out.println("\tBonus:          " + getBonus());

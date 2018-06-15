@@ -16,6 +16,7 @@ public class MainPayroll {
 
         InputStreamReader isr1 = new InputStreamReader(System.in);
         BufferedReader br1 = new BufferedReader(isr1);
+        GenerateUserDetailsPDF pdf = new GenerateUserDetailsPDF();
         boolean cont = true;
         String repeat = "n";
         String veh = null;
@@ -92,7 +93,6 @@ public class MainPayroll {
                             empCom.setCommissionPercentage(fCommission);
 
                         SingletonClass.getInstance().arrayListEmployee.add(empCom);
-                        GenerateUserDetailsPDF pdf = new GenerateUserDetailsPDF();
                         pdf.generateUserDetailsPDF(empCom);
                         pdf.setBackToTopLink();
                             cont = false;
@@ -145,6 +145,8 @@ public class MainPayroll {
                             empFix.setHoursWorked(fHourWorkedF);
                             empFix.setFixedAmount(fFixedPay);
                             SingletonClass.getInstance().arrayListEmployee.add(empFix);
+                            pdf.generateUserDetailsPDF(empFix);
+                            pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -183,7 +185,14 @@ public class MainPayroll {
                                 System.out.println("Employee has no vehicle");
                             }
 
+                            //Assigning values
+
+                            empIntern.setName(empName);
+                            empIntern.setAge(empAge);
+                            empIntern.setSchoolName(sSchoolName);
                             SingletonClass.getInstance().arrayListEmployee.add(empIntern);
+                            pdf.generateUserDetailsPDF(empIntern);
+                            pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -227,6 +236,8 @@ public class MainPayroll {
                             empFullTime.setSalary(fSalary);
                             empFullTime.setBonus(fBonus);
                             SingletonClass.getInstance().arrayListEmployee.add(empFullTime);
+                            pdf.generateUserDetailsPDF(empFullTime);
+                            pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -239,34 +250,38 @@ public class MainPayroll {
 
 
             System.out.println("Do you want to add more data? yes/no");
-                repeat = br1.readLine();
+                repeat = br1.readLine();                        //exception getting called check
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            a = a+  SingletonClass.getInstance().getEmployeeByIndex(count).calEarnings();
-            System.out.println("Total Earning: " + a );
         }
-        while(repeat.equals("yes") || repeat.equals("Yes") || repeat.equals("YES"));
+        while(repeat.equals("yes") || repeat.equals("Yes") || repeat.equals("y") || repeat.equals("Y"));
 
         System.out.println("Want to print the details of last upadated employee? yes/no");
         try {
-            String output = br.readLine();
-            if (output.equals("yes") || output.equals("Yes") || output.equals("YES")) {
-
+            String output = br1.readLine();
+            if (output.equals("yes") || output.equals("Yes") || output.equals("YES") || output.equals("y"))
+            {
                 Employee e = SingletonClass.getInstance().getEmployeeByIndex(count-1);
                 e.printMyData();
                 if (veh.equals("a") || veh.equals("A") || veh.equals("b") || veh.equals("B"))
-                {e.getVehicle().printMyData();}
+                {
+                    e.getVehicle().printMyData();
+                }else if (veh.equals("c") || veh.equals("C"))
+                    {
+                        System.out.println("Employee has no Vehicle");
+                    }
 
-            } else if (veh.equals("c") || veh.equals("C")){
+            } else {
                 System.out.println("Thank You!, Bye");
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+        a = a+  SingletonClass.getInstance().getEmployeeByIndex(count).calEarnings();
+        System.out.println("Total Earning of all employees: " + a );
     }
 
     public static void setCarDetails(Employee emp) throws IOException{

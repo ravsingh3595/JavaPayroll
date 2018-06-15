@@ -3,7 +3,7 @@ abstract public class Vehicle implements IPrintable{
     private String company;
     private String plate;
     private String colour;
-    private int year;       //this is the new addition, need to be added over other methods also.
+    private int year;
 
     public Vehicle()
     {
@@ -50,7 +50,6 @@ abstract public class Vehicle implements IPrintable{
 
             this.year = year;
         }
-
 
     abstract public void Vehicle();
 
