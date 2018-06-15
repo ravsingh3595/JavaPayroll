@@ -36,7 +36,12 @@ public class Motorcycle extends Vehicle{
     @Override
     public void printMyData()
     {
-        System.out.println("\tEngine Power: " + getEnginePower());
-        System.out.println("\tTop Speed:    " + getTopSpeed());
+        System.out.println("Employee has a MotorCycle ");
+        System.out.println("\tBrand:            " + getCompany());
+        System.out.println("\tVehicle Number:   " + getPlate());
+        System.out.println("\tColour:           " + getColour());
+        System.out.println("\tManufactured Year:" + getYear());
+        System.out.println("\tEngine Power:     " + getEnginePower());
+        System.out.println("\tTop Speed:        " + getTopSpeed());
     }
 }

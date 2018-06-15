@@ -1,2 +1,4 @@
-public interface IPrintable {
+public interface IPrintable
+{
+    public void printMyData();
 }

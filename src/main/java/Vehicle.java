@@ -1,4 +1,4 @@
-abstract public class Vehicle {
+abstract public class Vehicle implements IPrintable{
 
     private String company;
     private String plate;
@@ -47,18 +47,17 @@ abstract public class Vehicle {
     }
 
     public void setYear(int year) {
-        this.year = year;
-    }
+
+            this.year = year;
+        }
+
 
     abstract public void Vehicle();
 
+    @Override
     public void printMyData()
     {
-        System.out.println("Employee has a  ");                     //how to order the lines because this data will come fro the other class
-        System.out.println("\tBrand:          " + getCompany());
-        System.out.println("\tVehicle Number: " + getPlate());
-        System.out.println("\tColour:         " + getColour());
-        System.out.println("\tManufactured Year:" + getYear());
+
     }
 
 }
