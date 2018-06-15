@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaPayroll.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaPayroll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaPayroll_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaPayroll_main.iml" group="JavaPayroll" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaPayroll_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaPayroll_test.iml" group="JavaPayroll" />
+    </modules>
+  </component>
+</project>

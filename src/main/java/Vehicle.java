@@ -17,7 +17,8 @@ abstract public class Vehicle implements IPrintable{
         this.year = year;
     }
 
-    public String getCompany() {
+    public String getCompany()
+    {
         return company;
     }
 
