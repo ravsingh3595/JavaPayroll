@@ -1,0 +1,103 @@
+
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Éé®×8Â·ì‡À,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Â·ì‡À,
+8squid:S1220""Move this file to a named package.8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(£Ãşÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(àº‡ùÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(œãè”8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ı–ã8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(·‚¶İÿÿÿÿÿ8Â·ì‡À,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨ó«8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ê“Éûÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(çÏŠŸ8Â·ì‡À,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(é†è"8Â·ì‡À,
+squid:S1192"`Define a constant instead of duplicating this literal "What type of Vehicle you drive," 4 times.(³ƒ¡ÿÿÿÿÿ8Â·ì‡À,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(ıÿ¼8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ï†¼¬8Â·ì‡À,
+nsquid:S1192"RDefine a constant instead of duplicating this literal "\nc. No Vehicle\n" 4 times.(ÅØÄ 8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(˜Ñîë8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ï†¼¬8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(³ƒ¡ÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(õ‡˜øÿÿÿÿ8Â·ì‡À,
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 65 to the 15 allowed.(¨˜”Ú8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(×õµóÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(³ƒ¡ÿÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ï°âë8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(şÖÍµÿÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¡Ç¸É8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ô‹úÿÿÿÿ8Â·ì‡À,
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ë§”T8Â·ì‡À,
+tsquid:S1192"XDefine a constant instead of duplicating this literal "Employee has no vehicle" 4 times.(Ï†¼¬8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(è‘Áû8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(×õ¢Òúÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(’¼ÆÙ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÉÒŒ·ÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÉÒŒ·ÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¸ì¤şıÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¯÷Ñúÿÿÿÿ8Â·ì‡À,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(“éq8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ï†¼¬8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ï†¼¬8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¥ìš8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(â¸Ã¯8Â·ì‡À,
+jsquid:S1192"IDefine a constant instead of duplicating this literal "\na. Car" 4 times.(ëÕàÆøÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(íèĞûûÿÿÿÿ8Â·ì‡À,
+ˆsquid:S1192"gDefine a constant instead of duplicating this literal " Choose any option from the following " 5 times.(ú™ìœûÿÿÿÿ8Â·ì‡À,
+qsquid:S1192"PDefine a constant instead of duplicating this literal "\nb. Motorcycle" 4 times.(µš­šúÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(•×°à8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Æå®á8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(á‹Õá8Â·ì‡À,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªÈ‚8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Í”÷å8Â·ì‡À,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨ó«8Â·ì‡À,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Â·ì‡À,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Öšµ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ä¬¶Ãøÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(³ƒ¡ÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(³ƒ¡ÿÿÿÿÿ8Â·ì‡À,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(±â¾òıÿÿÿÿ8Â·ì‡À,

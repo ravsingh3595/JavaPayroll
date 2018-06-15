@@ -1,0 +1,14 @@
+
+csquid:CallToDeprecatedMethod"1Remove this use of "WebColors"; it is deprecated.(Ú„©÷ÿÿÿÿÿ8”Ôä¿,
+1squid:S1220""Move this file to a named package.
+?squid:S1148"#Use a logger to log this exception.(Ç’Çê8¿Î¸å¿,
+`squid:S2147"DCombine this catch with the one at line 35, which has the same body.(‹±ÃÆ8”Ôä¿,
+Lsquid:S1481"+Remove this unused "writer" local variable.(ĞÆÖ¹üÿÿÿÿ8”Ôä¿,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™ğ±Ãüÿÿÿÿ8”Ôä¿,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8”Ôä¿,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8”Ôä¿,
+isquid:S1192"HDefine a constant instead of duplicating this literal "Earning" 4 times.(ïí¦ıÿÿÿÿ8í§Í‡À,
+gsquid:S1192"FDefine a constant instead of duplicating this literal "Plate" 4 times.(úŒº™úÿÿÿÿ8í§Í‡À,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥¸ßÏÿÿÿÿÿ8í§Í‡À,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î¾°¥8í§Í‡À,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8í§Í‡À,
