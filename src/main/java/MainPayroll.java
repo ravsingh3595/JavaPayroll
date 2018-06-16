@@ -50,7 +50,7 @@ public class MainPayroll {
 
                             System.out.println("Commission Based PartTime Employee");
 
-                            System.out.println("Enter your hourly pay:");
+                            System.out.println("Enter your hourly pay in CAD:");
                             String sPayC = br1.readLine();                                       //sPayC = String of hourly pay for Commission
                             float fPayC = Float.parseFloat(sPayC);                              //fPayC = float value of sPay for Commission
 
@@ -95,7 +95,7 @@ public class MainPayroll {
 
                         SingletonClass.getInstance().arrayListEmployee.add(empCom);
                         pdf.generateUserDetailsPDF(empCom);
-                        //pdf.setBackToTopLink();
+
                             cont = false;
                             break;
 
@@ -105,7 +105,7 @@ public class MainPayroll {
                             System.out.println("Fixed Based PartTime Employee");
                             FixedBasedPartTime empFix = new FixedBasedPartTime();
 
-                            System.out.println("Enter your hourly pay:");
+                            System.out.println("Enter your hourly pay in CAD:");
                             String sPayF = br.readLine();                                    //sPayF = String of hourly pay for Fixed Based
                             float fPayF = Float.parseFloat(sPayF);                           //fPayF = float value of sPay for Fixed based
 
@@ -113,7 +113,7 @@ public class MainPayroll {
                             String sHourWorkedF = br.readLine();                             //sHourWorkedF = String of hours worked for Fixed Based
                             float fHourWorkedF = Float.parseFloat(sHourWorkedF);             //fHourWorkedF = float value of sHourWorked for Fixed Based
 
-                            System.out.println("Enter your Fixed pay: ");
+                            System.out.println("Enter your Fixed pay in CAD: ");
                             String sFixedPay = br.readLine();                                //sFixedPay = String of Fixed Based
                             float fFixedPay = Float.parseFloat(sFixedPay);                   //fFixedPay = float value of Fixed Based
 
@@ -146,7 +146,7 @@ public class MainPayroll {
                             empFix.setFixedAmount(fFixedPay);
                             SingletonClass.getInstance().arrayListEmployee.add(empFix);
                             pdf.generateUserDetailsPDF(empFix);
-                            //pdf.setBackToTopLink();
+
                             cont = false;
                             break;
 
@@ -192,7 +192,7 @@ public class MainPayroll {
                             empIntern.setSchoolName(sSchoolName);
                             SingletonClass.getInstance().arrayListEmployee.add(empIntern);
                             pdf.generateUserDetailsPDF(empIntern);
-                            //pdf.setBackToTopLink();
+
                             cont = false;
                             break;
 
@@ -202,11 +202,11 @@ public class MainPayroll {
                             System.out.println("FullTime Employee");
                             FullTime empFullTime = new FullTime();
 
-                            System.out.println("Enter your Salary: ");
+                            System.out.println("Enter your Salary in CAD: ");
                             String sSalary = br.readLine();                                 //sSalary = String of Salary
                             float fSalary = Float.parseFloat(sSalary);                      //fSalary = float value of sSalary
 
-                            System.out.println("Enter the Bonus you got:");
+                            System.out.println("Enter the Bonus you got in CAD:");
                             String sBonus = br.readLine();                                  //sBonus = String of Bonus
                             float fBonus = Float.parseFloat(sBonus);                        //fBonus = float value of sBonus
 
@@ -237,7 +237,7 @@ public class MainPayroll {
                             empFullTime.setBonus(fBonus);
                             SingletonClass.getInstance().arrayListEmployee.add(empFullTime);
                             pdf.generateUserDetailsPDF(empFullTime);
-                            //pdf.setBackToTopLink();
+
                             cont = false;
                             break;
 
@@ -250,7 +250,7 @@ public class MainPayroll {
 
 
             System.out.println("Do you want to add more data? yes/no");
-                repeat = br1.readLine();                        //exception getting called check
+                repeat = br1.readLine();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -260,7 +260,7 @@ public class MainPayroll {
 
         System.out.println("Want to print the details of last updated employee? yes/no");
         try {
-            output = br1.readLine();                                                 //exception
+            output = br1.readLine();
             
             if (output.equals("yes") || output.equals("Yes") || output.equals("YES") || output.equals("y"))
             {
@@ -329,7 +329,7 @@ public class MainPayroll {
         System.out.println("What is the manufacturing year of your MotorCycle? ");
         String sYearM = br.readLine();                                                //sYearM = String of plate for motorcycle
         int iYearM = Integer.parseInt(sYearM);                                        //iYearM = integer of sYear for motorcycle
-        System.out.println("Which CC bike you drive?");
+        System.out.println("What is the CC MotorCycle you drive?");
         String sPowerM = br.readLine();                                              //sPowerM = String of Horse-Power for motorcycle
         float fPowerM = Float.parseFloat(sPowerM);                                   //fPowerM = float of sPowerM for motorcycle
         System.out.println("What is the Top-speed of your MotorCycle? ");

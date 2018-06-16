@@ -32,6 +32,6 @@ public class Intern extends Employee {
         System.out.println("Year of Birth:  " + getCalBirthYear());
         System.out.println("Employee is Intern");
         System.out.println("\tSchoolName:     " + getSchoolName());
-        System.out.println("\tEarnings:       " + calEarnings());
+        System.out.println("\tEarnings:       " + "C$"+calEarnings());
     }
 }

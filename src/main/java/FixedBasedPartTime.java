@@ -31,9 +31,9 @@ public class FixedBasedPartTime extends PartTime{
         System.out.println("Name:           " + getName());
         System.out.println("Year of Birth:  " + getCalBirthYear());
         System.out.println("Employee is PartTime/Fixed ");
-        System.out.println("\tRate:           " + getRate());
-        System.out.println("\tHours Worked:   " + getHoursWorked());
-        System.out.println("\tFixed Amount:   " + getFixedAmount());
-        System.out.println("\tEarning:        " + calEarnings());
+        System.out.println("\tRate per hour:       " + getRate());
+        System.out.println("\tHours Worked:        " + getHoursWorked());
+        System.out.println("\tFixed Amount in CAD: " + getFixedAmount());
+        System.out.println("\tEarning in CAD:      " +"C$"+calEarnings());
     }
 }

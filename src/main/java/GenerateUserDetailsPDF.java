@@ -242,7 +242,7 @@ public class GenerateUserDetailsPDF {
     }
     public void setBackToTopLink(double totalPayroll) {
         try {
-            Paragraph total = new Paragraph(new Phrase("Total Earning of all employees: " + totalPayroll ));
+            Paragraph total = new Paragraph(new Phrase("Total Earning of all employees: "+"C$"+totalPayroll ));
             document.add(total);
             Anchor anchor2 = new Anchor("Back To Top");
             anchor2.setReference("#BackToTop");
