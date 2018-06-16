@@ -1,5 +1,5 @@
 
-//import java.util.Scanner;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -18,9 +18,10 @@ public class MainPayroll {
         BufferedReader br1 = new BufferedReader(isr1);
         GenerateUserDetailsPDF pdf = new GenerateUserDetailsPDF();
         boolean cont = true;
-        String repeat = "n";
+        String repeat = "no";
         String veh = null;
         String employmentType = null;
+        String output = "no";
         System.out.println("Employee Database System");
 
         do{
@@ -94,7 +95,7 @@ public class MainPayroll {
 
                         SingletonClass.getInstance().arrayListEmployee.add(empCom);
                         pdf.generateUserDetailsPDF(empCom);
-                        pdf.setBackToTopLink();
+                        //pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -115,7 +116,6 @@ public class MainPayroll {
                             System.out.println("Enter your Fixed pay: ");
                             String sFixedPay = br.readLine();                                //sFixedPay = String of Fixed Based
                             float fFixedPay = Float.parseFloat(sFixedPay);                   //fFixedPay = float value of Fixed Based
-
 
                             System.out.println("What type of Vehicle you drive," +
                                     " Choose any option from the following " +
@@ -146,7 +146,7 @@ public class MainPayroll {
                             empFix.setFixedAmount(fFixedPay);
                             SingletonClass.getInstance().arrayListEmployee.add(empFix);
                             pdf.generateUserDetailsPDF(empFix);
-                            pdf.setBackToTopLink();
+                            //pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -192,7 +192,7 @@ public class MainPayroll {
                             empIntern.setSchoolName(sSchoolName);
                             SingletonClass.getInstance().arrayListEmployee.add(empIntern);
                             pdf.generateUserDetailsPDF(empIntern);
-                            pdf.setBackToTopLink();
+                            //pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -237,7 +237,7 @@ public class MainPayroll {
                             empFullTime.setBonus(fBonus);
                             SingletonClass.getInstance().arrayListEmployee.add(empFullTime);
                             pdf.generateUserDetailsPDF(empFullTime);
-                            pdf.setBackToTopLink();
+                            //pdf.setBackToTopLink();
                             cont = false;
                             break;
 
@@ -258,9 +258,10 @@ public class MainPayroll {
         }
         while(repeat.equals("yes") || repeat.equals("Yes") || repeat.equals("y") || repeat.equals("Y"));
 
-        System.out.println("Want to print the details of last upadated employee? yes/no");
+        System.out.println("Want to print the details of last updated employee? yes/no");
         try {
-            String output = br1.readLine();
+            output = br1.readLine();                                                 //exception
+            
             if (output.equals("yes") || output.equals("Yes") || output.equals("YES") || output.equals("y"))
             {
                 Employee e = SingletonClass.getInstance().getEmployeeByIndex(count-1);
@@ -273,20 +274,26 @@ public class MainPayroll {
                         System.out.println("Employee has no Vehicle");
                     }
 
+               a = a+  SingletonClass.getInstance().getEmployeeByIndex(count-1).calEarnings();
+//                System.out.println("Total Earning of all employees: " + a );
+
             } else {
                 System.out.println("Thank You!, Bye");
+
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        a = a+  SingletonClass.getInstance().getEmployeeByIndex(count).calEarnings();
-        System.out.println("Total Earning of all employees: " + a );
+
+
+        pdf.setBackToTopLink(a);
+
     }
 
     public static void setCarDetails(Employee emp) throws IOException{
-        System.out.println("setcar details running");
         System.out.println("You have a Car");
+
         System.out.println("Enter the Brand of the car you drive ");
         String sBrandC = br.readLine();                                                //sSalaryC = String of Brand for car
         System.out.println("What is your Car's Plate Number? ");
