@@ -1,4 +1,4 @@
-abstract public class Employee {
+abstract public class Employee implements IPrintable{
 
     private String name;
     private int age;

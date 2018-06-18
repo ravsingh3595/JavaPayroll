@@ -7,7 +7,7 @@ public class MainPayroll {
 
     static InputStreamReader isr = new InputStreamReader(System.in);
     static BufferedReader br = new BufferedReader(isr);
-    static int count = 0;
+//    static int count = 0;
     static float a = 0;
 
 
@@ -24,6 +24,7 @@ public class MainPayroll {
         String output = "no";
         System.out.println("Employee Database System");
 
+        int count = 0;
         do{
             count++;
 
@@ -202,7 +203,7 @@ public class MainPayroll {
                             System.out.println("FullTime Employee");
                             FullTime empFullTime = new FullTime();
 
-                            System.out.println("Enter your Salary in CAD: ");
+                            System.out.println("Enter your Salary in CAD per week: ");
                             String sSalary = br.readLine();                                 //sSalary = String of Salary
                             float fSalary = Float.parseFloat(sSalary);                      //fSalary = float value of sSalary
 
@@ -255,6 +256,7 @@ public class MainPayroll {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            a = a+ SingletonClass.getInstance().getEmployeeByIndex(count-1).calEarnings();
         }
         while(repeat.equals("yes") || repeat.equals("Yes") || repeat.equals("y") || repeat.equals("Y"));
 
@@ -274,17 +276,18 @@ public class MainPayroll {
                         System.out.println("Employee has no Vehicle");
                     }
 
-               a = a+  SingletonClass.getInstance().getEmployeeByIndex(count-1).calEarnings();
+
 //                System.out.println("Total Earning of all employees: " + a );
 
             } else {
-                System.out.println("Thank You!, Bye");
+                System.out.println("Thank You! Bye");
 
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
 
 
         pdf.setBackToTopLink(a);
@@ -332,7 +335,7 @@ public class MainPayroll {
         System.out.println("What is the CC MotorCycle you drive?");
         String sPowerM = br.readLine();                                              //sPowerM = String of Horse-Power for motorcycle
         float fPowerM = Float.parseFloat(sPowerM);                                   //fPowerM = float of sPowerM for motorcycle
-        System.out.println("What is the Top-speed of your MotorCycle? ");
+        System.out.println("What is the Top-speed of your MotorCycle in Km/hr? ");
         String sSpeedM = br.readLine();                                              //sSpeedM = String of Top-Speed for motorcycle
         float fSpeedM = Float.parseFloat(sSpeedM);
 

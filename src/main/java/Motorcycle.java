@@ -41,7 +41,7 @@ public class Motorcycle extends Vehicle{
         System.out.println("\tVehicle Number:   " + getPlate());
         System.out.println("\tColour:           " + getColour());
         System.out.println("\tManufactured Year:" + getYear());
-        System.out.println("\tEngine Power:     " + getEnginePower());
-        System.out.println("\tTop Speed:        " + getTopSpeed());
+        System.out.println("\tEngine Power:     " + getEnginePower()+"CC");
+        System.out.println("\tTop Speed:        " + getTopSpeed()+"Km/hr");
     }
 }

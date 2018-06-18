@@ -13,6 +13,8 @@ public class GenerateUserDetailsPDF {
 
     private Document document;
     private Font headerFont;
+    private Font TypeFont;
+    private Font TypeFont2;
     BaseColor myBackgroundColor;
     int count;
 
@@ -40,6 +42,10 @@ public class GenerateUserDetailsPDF {
         }
 
         headerFont = FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD,
+                new CMYKColor(255, 255, 0, 40));
+        TypeFont = FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD,
+                new CMYKColor(200, 200, 0, 20));
+        TypeFont2 = FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD,
                 new CMYKColor(0, 255, 255, 17));
     }
 
@@ -56,8 +62,6 @@ public class GenerateUserDetailsPDF {
 
     public void generateUserDetailsPDF(Employee e) {
 
-//        for (int index = 0; index < SingletonClass.getInstance().arrayListEmployee.size(); index++) {
-        float a;
             try {
 
                 count++;
@@ -65,12 +69,7 @@ public class GenerateUserDetailsPDF {
                 t.setSpacingBefore(25);
                 t.setSpacingAfter(25);
 
-//              PdfPCell c1 = new PdfPCell(new Phrase("Id", headerFont))
-//            t.addCell(c1);
-//            t.addCell(String.valueOf(e.getName()));
-
                 PdfPCell c1 = new PdfPCell(new Phrase("Name", headerFont));
-//                c1.setBackgroundColor(myBackgroundColor);
                 t.addCell(c1);
                 t.addCell(String.valueOf(e.getName()));
 
@@ -78,13 +77,12 @@ public class GenerateUserDetailsPDF {
                 t.addCell(c1);
                 t.addCell(String.valueOf(e.getCalBirthYear()));
 
-
                 if (e instanceof PartTime) {
                     PartTime p = (PartTime) e;
 
                     c1 = new PdfPCell(new Phrase("Rate", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(p.getRate()));
+                    t.addCell(String.valueOf(p.getRate()+"/hr"));
 
                     c1 = new PdfPCell(new Phrase("Hours Worked", headerFont));
                     t.addCell(c1);
@@ -96,32 +94,33 @@ public class GenerateUserDetailsPDF {
                         c1 = new PdfPCell(new Phrase("Employee Type", headerFont));
                         t.addCell(c1);
 
-                        c1 = new PdfPCell(new Phrase("PartTime / Commission ", headerFont));
+                        c1 = new PdfPCell(new Phrase("PartTime / Commission ", TypeFont));
                         t.addCell(c1);
 
                         c1 = new PdfPCell(new Phrase("Commission", headerFont));
                         t.addCell(c1);
-                        t.addCell(String.valueOf(c.getCommissionPercentage()));
+                        t.addCell(String.valueOf(c.getCommissionPercentage()+"%"));
 
                         c1 = new PdfPCell(new Phrase("Earning", headerFont));
                         t.addCell(c1);
-                        t.addCell(String.valueOf(c.calEarnings()));
+                        t.addCell(String.valueOf("CAD"+c.calEarnings()));
+
                     } else if (p instanceof FixedBasedPartTime) {
                         FixedBasedPartTime f = (FixedBasedPartTime) e;
 
                         c1 = new PdfPCell(new Phrase("Employee Type", headerFont));
                         t.addCell(c1);
 
-                        c1 = new PdfPCell(new Phrase("PartTime / Fixed ", headerFont));
+                        c1 = new PdfPCell(new Phrase("PartTime / Fixed ", TypeFont));
                         t.addCell(c1);
 
                         c1 = new PdfPCell(new Phrase("Fixed Amount", headerFont));
                         t.addCell(c1);
-                        t.addCell(String.valueOf(f.getFixedAmount()));
+                        t.addCell(String.valueOf("CAD "+f.getFixedAmount()+" /Week"));
 
                         c1 = new PdfPCell(new Phrase("Earning", headerFont));
                         t.addCell(c1);
-                        t.addCell(String.valueOf(f.calEarnings()));
+                        t.addCell(String.valueOf("CAD "+f.calEarnings()));
                     }
                 } else if (e instanceof Intern) {
                     Intern i = (Intern) e;
@@ -129,7 +128,7 @@ public class GenerateUserDetailsPDF {
                     c1 = new PdfPCell(new Phrase("Employee Type", headerFont));
                     t.addCell(c1);
 
-                    c1 = new PdfPCell(new Phrase("Intern ", headerFont));
+                    c1 = new PdfPCell(new Phrase("Intern ", TypeFont));
                     t.addCell(c1);
 
                     c1 = new PdfPCell(new Phrase("School Name", headerFont));
@@ -138,36 +137,36 @@ public class GenerateUserDetailsPDF {
 
                     c1 = new PdfPCell(new Phrase("Earning", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(i.calEarnings()));
+                    t.addCell(String.valueOf("CAD "+i.calEarnings()));
+
                 } else if (e instanceof FullTime) {
                     FullTime ft = (FullTime) e;
 
                     c1 = new PdfPCell(new Phrase("Employee Type", headerFont));
                     t.addCell(c1);
 
-                    c1 = new PdfPCell(new Phrase("Full Time ", headerFont));
+                    c1 = new PdfPCell(new Phrase("Full Time ", TypeFont));
                     t.addCell(c1);
 
                     c1 = new PdfPCell(new Phrase("Salary", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(ft.getSalary()));
+                    t.addCell(String.valueOf("CAD"+ft.getSalary()+"Per"));
 
                     c1 = new PdfPCell(new Phrase("Bonus", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(ft.getBonus()));
+                    t.addCell(String.valueOf("CAD"+ft.getBonus()));
 
                     c1 = new PdfPCell(new Phrase("Earning", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(ft.calEarnings()));
+                    t.addCell(String.valueOf("CAD"+ft.calEarnings()));
                 }
                 if(e.getVehicle() == null)
                 {
                     c1 = new PdfPCell(new Phrase("Vehicle Type", headerFont));
                     t.addCell(c1);
 
-                    c1 = new PdfPCell(new Phrase("--- None ---", headerFont));
+                    c1 = new PdfPCell(new Phrase("--- None ---", TypeFont2));
                     t.addCell(c1);
-//                    t.addCell(String.valueOf("None"));
 
                 }
 
@@ -176,7 +175,8 @@ public class GenerateUserDetailsPDF {
                     Car c = (Car) e.getVehicle();
                     c1 = new PdfPCell(new Phrase("Vehicle Type", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf("Car"));
+                    c1 = new PdfPCell(new Phrase("Car", headerFont));
+                    t.addCell(c1);
 
                     c1 = new PdfPCell(new Phrase("Make", headerFont));
                     t.addCell(c1);
@@ -190,13 +190,13 @@ public class GenerateUserDetailsPDF {
                     t.addCell(c1);
                     t.addCell(String.valueOf(c.getColour()));
 
-                    c1 = new PdfPCell(new Phrase("Plate", headerFont));
+                    c1 = new PdfPCell(new Phrase("Manufacturing Year", headerFont));
                     t.addCell(c1);
                     t.addCell(String.valueOf(c.getYear()));
 
                     c1 = new PdfPCell(new Phrase("Storage Capacity", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(c.getStorageCapacity()));
+                    t.addCell(String.valueOf(c.getStorageCapacity()+" litres"));
 
                     c1 = new PdfPCell(new Phrase("Seat Count", headerFont));
                     t.addCell(c1);
@@ -205,6 +205,10 @@ public class GenerateUserDetailsPDF {
                 else if(e.getVehicle() instanceof Motorcycle)
                 {
                     Motorcycle m = (Motorcycle) e.getVehicle();
+                    c1 = new PdfPCell(new Phrase("Vehicle Type", headerFont));
+                    t.addCell(c1);
+                    c1 = new PdfPCell(new Phrase("MotorCycle", headerFont));
+                    t.addCell(c1);
 
                     c1 = new PdfPCell(new Phrase("Make", headerFont));
                     t.addCell(c1);
@@ -218,22 +222,18 @@ public class GenerateUserDetailsPDF {
                     t.addCell(c1);
                     t.addCell(String.valueOf(m.getColour()));
 
-                    c1 = new PdfPCell(new Phrase("Plate", headerFont));
+                    c1 = new PdfPCell(new Phrase("Manufacturing Year", headerFont));
                     t.addCell(c1);
                     t.addCell(String.valueOf(m.getYear()));
 
-                    c1 = new PdfPCell(new Phrase("Storage Capacity", headerFont));
+                    c1 = new PdfPCell(new Phrase("Power", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(m.getEnginePower()));
+                    t.addCell(String.valueOf(m.getEnginePower()+" CC"));
 
-                    c1 = new PdfPCell(new Phrase("Seat Count", headerFont));
+                    c1 = new PdfPCell(new Phrase("Top Speed", headerFont));
                     t.addCell(c1);
-                    t.addCell(String.valueOf(m.getTopSpeed()));
+                    t.addCell(String.valueOf(m.getTopSpeed()+" Km/hr"));
                 }
-
-
-
-
                 document.add(t);
             } catch (DocumentException ex) {
                 ex.printStackTrace();
