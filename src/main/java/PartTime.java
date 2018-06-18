@@ -1,4 +1,4 @@
-abstract public class PartTime extends Employee {
+ public abstract class PartTime extends Employee {
 
     private float rate;
     private float hoursWorked;
@@ -30,7 +30,7 @@ abstract public class PartTime extends Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    abstract public float calEarnings();
+     public abstract float calEarnings();
 
     @Override
     public void printMyData()

@@ -1,4 +1,4 @@
-abstract public class Vehicle implements IPrintable{
+ public abstract class Vehicle implements IPrintable{
 
     private String company;
     private String plate;
@@ -51,7 +51,7 @@ abstract public class Vehicle implements IPrintable{
             this.year = year;
         }
 
-    abstract public void Vehicle();
+     public abstract void Vehicle();
 
     @Override
     public void printMyData()

@@ -1,4 +1,4 @@
-abstract public class Employee implements IPrintable{
+ public abstract class Employee implements IPrintable{
 
     private String name;
     private int age;
@@ -48,7 +48,7 @@ abstract public class Employee implements IPrintable{
         this.vehicle = vehicle;
     }
 
-    abstract public float calEarnings();
+     public abstract float calEarnings();
     /* {
         return (1000f);
     }*/
